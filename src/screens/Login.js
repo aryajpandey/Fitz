@@ -8,10 +8,14 @@ import {
   TextInput,
   TouchableHighlight,
 } from "react-native";
-import CustomButton from "../component/CustomButton";
+
+import { Button } from "react-native-paper";
+
 import CustomInput from "../component/CustomInput";
 
-function LoginScreen({ nav }) {
+import s from "../style";
+
+function LoginScreen({ navigation }) {
   const [username, onChangeUsername] = React.useState("");
   const [password, onChangePassword] = React.useState("");
 
@@ -23,7 +27,7 @@ function LoginScreen({ nav }) {
           source={require("../../assets/logo.png")}
           style={s.logo}
         ></Image>
-        <Text style={s.header}>ANYWHERE.</Text>
+        <Text style={s.subtitle}>Train Anywhere</Text>
       </View>
       <View style={{ flex: 2 }}>
         <CustomInput
@@ -37,22 +41,29 @@ function LoginScreen({ nav }) {
           onChangeText={(text) => onChangePassword(text)}
           value={password}
         ></CustomInput>
-        <CustomButton
-          title={"Login"}
+        <Button
+          icon="login"
+          mode="contained"
+          style={s.standardButton}
           onPress={() => {
-            nav.navigate("Home");
+            navigation.navigate("Home");
           }}
-        ></CustomButton>
-        <CustomButton
-          title={"Register"}
+        >
+          Login
+        </Button>
+        <Button
+          icon="account-plus-outline"
+          mode="outlined"
+          style={s.standardButton}
           onPress={() => {
-            nav.navigate("Register");
+            navigation.navigate("Register");
           }}
-        ></CustomButton>
+        >
+          Register
+        </Button>
       </View>
     </SafeAreaView>
   );
 }
-const s = require("../style/global-style.js");
 
 export default LoginScreen;

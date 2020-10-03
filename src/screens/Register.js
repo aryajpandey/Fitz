@@ -1,16 +1,13 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  Image,
-  TextInput,
-} from "react-native";
-import CustomButton from "../component/CustomButton";
+import { TouchableOpacity, View, Text, Image, TextInput } from "react-native";
 import CustomInput from "../component/CustomInput";
 
-const RegisterScreen = ({ nav }) => {
+import s from "../style";
+import { Button } from "react-native-paper";
+import styles from "../style";
+
+const RegisterScreen = ({ navigation }) => {
   const [username, onChangeUsername] = React.useState("");
   const [password, onChangePassword] = React.useState("");
   const [confirmPassword, onChangeConfirmPassword] = React.useState("");
@@ -23,7 +20,7 @@ const RegisterScreen = ({ nav }) => {
           resizeMode={"stretch"}
           source={require("../../assets/logo.png")}
           style={s.logo}
-        ></Image>
+        />
         <Text style={s.header}>ANYWHERE.</Text>
       </View>
       <View style={{ flex: 2.5 }}>
@@ -53,16 +50,17 @@ const RegisterScreen = ({ nav }) => {
           onChangeText={(text) => onChangeConfirmPassword(text)}
           value={confirmPassword}
         />
-        <CustomButton
-          title={"Next"}
+        <Button
+          style={s.standardButton}
+          mode="contained"
           onPress={() => {
-            nav.navigate("Interests");
+            navigation.navigate("Interests");
           }}
-        ></CustomButton>
+        >
+          Next
+        </Button>
       </View>
     </SafeAreaView>
   );
 };
-const s = require("../style/global-style.js");
-
 export default RegisterScreen;

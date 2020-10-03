@@ -6,6 +6,8 @@ import {
   FlatList,
   TouchableHighlight,
 } from "react-native";
+import { Button } from "react-native-paper";
+import s from "../style";
 
 const Card = ({ item, color }) => {
   return (
@@ -36,7 +38,7 @@ const Card = ({ item, color }) => {
   );
 };
 
-function InterestPromptScreen ({ nav }) {
+function InterestPromptScreen({ navigation }) {
   const selected = "#f2f2f2";
   const unselected = "white";
 
@@ -48,10 +50,10 @@ function InterestPromptScreen ({ nav }) {
 
   React.useEffect(
     () =>
-      nav.addListener("beforeRemove", (e) => {
+      navigation.addListener("beforeRemove", (e) => {
         e.preventDefault();
       }),
-    [nav]
+    [navigation]
   );
 
   return (
@@ -94,22 +96,16 @@ function InterestPromptScreen ({ nav }) {
           backgroundColor: "white",
         }}
       ></FlatList>
-      <TouchableHighlight
-        style={{
-          ...s.openButton,
-          backgroundColor: "#2196F3",
-          padding: 20,
-          margin: 5,
-        }}
+      <Button
+        style={s.standardButton}
+        mode="contained"
         onPress={() => {
-          nav.navigate("Home", {post:"something"});
+          navigation.navigate("Home", { post: "something" });
         }}
       >
-        <Text style={s.textStyle}>Finish</Text>
-      </TouchableHighlight>
+        Finish
+      </Button>
     </View>
   );
-};
-const s = require("../style/global-style.js");
-
+}
 export default InterestPromptScreen;

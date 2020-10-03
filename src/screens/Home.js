@@ -9,70 +9,64 @@ import {
 } from "react-native";
 import { Rating } from "react-native-ratings";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {Appbar, Searchbar} from 'react-native-paper';
+import { Appbar, Searchbar } from "react-native-paper";
+import styles from "../style";
 
-const AppHeader = ({header}) => {
-  return(
-
-   <Appbar.Header style={{
-     height: 80,
-     backgroundColor: '#ffea00',
-   }}>
-
-   
-   <View style = {{flexDirection: 'row',}}>
-      <Searchbar style={{
-        borderRadius: 25,
-      }} 
-      placeholder="Find"
-      
-      ></Searchbar>
-   </View>
-
-
-   </Appbar.Header>
+const AppHeader = ({ header }) => {
+  return (
+    <Appbar.Header
+      style={{
+        height: 80,
+        backgroundColor: "#ffea00",
+      }}
+    >
+      <View style={{ flexDirection: "row" }}>
+        <Searchbar
+          style={{
+            borderRadius: 25,
+          }}
+          placeholder="Find"
+        ></Searchbar>
+      </View>
+    </Appbar.Header>
   );
 };
-
-
-
-
 
 const Trainer = ({ trainer }) => {
   return (
     <SafeAreaView>
-    <View style={s.card}>
-      <View
-        style={{ flex: 1, flexDirection: "column", justifyContent: "center"}}
-      >
-        <Image style={s.cardProfileImage} source={trainer.image}></Image>
-        <Text
-          style={{
-            alignSelf: "center",
-            fontWeight: "bold",
-            fontSize: 15,
-          }}
+      <View style={styles.card}>
+        <View
+          style={{ flex: 1, flexDirection: "column", justifyContent: "center" }}
         >
-          {trainer.name}
-        </Text>
-        <Rating
-          ratingCount={5}
-          startingValue={trainer.rating}
-          readonly
-          imageSize={20}
-        />
+          <Image style={styles.cardProfileImage} source={trainer.image} />
+          <Text
+            style={{
+              alignSelf: "center",
+              fontWeight: "bold",
+              fontSize: 15,
+            }}
+          >
+            {trainer.name}
+          </Text>
+          <Rating
+            ratingCount={5}
+            startingValue={trainer.rating}
+            readonly
+            imageSize={20}
+          />
+        </View>
+        <View style={{ flex: 1 }}>
+          <FlatList
+            style={{ padding: 20 }}
+            keyExtractor={(item) => item.id}
+            data={trainer.categories}
+            renderItem={({ item }) => {
+              return <Text style={{ fontSize: 15 }}>{item}</Text>;
+            }}
+          ></FlatList>
+        </View>
       </View>
-      <View style={{ flex: 1 }}>
-        <FlatList
-          style={{ padding: 20 }}
-          keyExtractor={(item) => item.id}
-          data={trainer.categories}
-          renderItem={({ item }) => {
-            return <Text style={{ fontSize: 15 }}>{item}</Text>;
-          }}
-        ></FlatList>
-      </View>
-    </View>
     </SafeAreaView>
   );
 };
@@ -83,7 +77,7 @@ const wait = (timeout) => {
   });
 };
 
-function HomeScreen({ route, nav }) {
+function HomeScreen({ route, navigation }) {
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {
@@ -100,7 +94,7 @@ function HomeScreen({ route, nav }) {
           return (
             <TouchableOpacity
               onPress={() => {
-                nav.navigate("Trainer", { item });
+                navigation.navigate("Trainer", { item });
               }}
             >
               <Trainer trainer={item} />
@@ -119,6 +113,5 @@ function HomeScreen({ route, nav }) {
     </View>
   );
 }
-const s = require("../style/global-style.js");
 
 export default HomeScreen;
