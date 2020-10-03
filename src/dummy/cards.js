@@ -12,7 +12,7 @@ module.exports = [
     rating: 5,
     age: 30,
     sex: "M",
-    categories: ["Zoomba"],
+    categories: ["Zumba"],
     coordinates: ["", ""],
     description: "I like to teach people",
     biography:
@@ -77,7 +77,7 @@ module.exports = [
     rating: 5,
     age: 28,
     sex: "F",
-    categories: ["Zoomba"],
+    categories: ["Zumba"],
     coordinates: ["", ""],
     description: "I like to teach people",
     biography:
@@ -90,7 +90,7 @@ module.exports = [
     rating: 5,
     age: 21,
     sex: "F",
-    categories: ["Zoomba"],
+    categories: ["Zumba"],
     coordinates: ["", ""],
     description: "I like to teach people",
     biography:

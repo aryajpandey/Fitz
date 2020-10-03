@@ -6,7 +6,7 @@ var { StyleSheet } = React;
 
 module.exports = [
   {
-    name: "Zoomba",
+    name: "Zumba",
   },
   {
     name: "Yoga",
