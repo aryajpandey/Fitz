@@ -11,6 +11,7 @@ import { Rating } from "react-native-ratings";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Appbar, Portal, Searchbar } from "react-native-paper";
 import styles from "../style";
+import { NavigationActions } from 'react-navigation';
 
 const AppHeader = ({ header }) => {
   return (
@@ -20,10 +21,12 @@ const AppHeader = ({ header }) => {
         backgroundColor: "#ffea00",
       }}
     >
+      <Appbar.BackAction onPress={() => {this.props.navigation.goback()}} />
       <View style={{ flexDirection: "row" }}>
         <Searchbar
           style={{
             borderRadius: 25,
+            width: 300,
           }}
           placeholder="Find"
         ></Searchbar>
