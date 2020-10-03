@@ -6,13 +6,14 @@ import {
   Image,
   RefreshControl,
   FlatList,
+  Alert,
 } from "react-native";
 import { Rating } from "react-native-ratings";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Appbar, Searchbar } from "react-native-paper";
+import { Appbar, Portal, Searchbar } from "react-native-paper";
 import styles from "../style";
 
-const AppHeader = ({ header }) => {
+const AppHeader = () => {
   return (
     <Appbar.Header
       style={{
@@ -32,42 +33,16 @@ const AppHeader = ({ header }) => {
   );
 };
 
-const Trainer = ({ trainer }) => {
+const TrainerInfo = () => {
+  const showMod = () => setVisible(true);
+  const hideMod = () => setVisible(false);
+
   return (
-    <SafeAreaView>
-      <View style={styles.card}>
-        <View
-          style={{ flex: 1, flexDirection: "column", justifyContent: "center" }}
-        >
-          <Image style={styles.cardProfileImage} source={trainer.image} />
-          <Text
-            style={{
-              alignSelf: "center",
-              fontWeight: "bold",
-              fontSize: 15,
-            }}
-          >
-            {trainer.name}
-          </Text>
-          <Rating
-            ratingCount={5}
-            startingValue={trainer.rating}
-            readonly
-            imageSize={20}
-          />
-        </View>
-        <View style={{ flex: 1 }}>
-          <FlatList
-            style={{ padding: 20 }}
-            keyExtractor={(item) => item.id}
-            data={trainer.categories}
-            renderItem={({ item }) => {
-              return <Text style={{ fontSize: 15 }}>{item}</Text>;
-            }}
-          ></FlatList>
-        </View>
-      </View>
-    </SafeAreaView>
+    <Portal>
+      <Modal visible={hideMod}>
+        <Text>Sample</Text>
+      </Modal>
+    </Portal>
   );
 };
 
@@ -86,8 +61,8 @@ function HomeScreen({ route, navigation }) {
   }, []);
 
   return (
-    <View style={{ flex: 1, paddingTop: 5, backgroundColor: "white" }}>
-      {}
+    <View style={{ flex: 1, backgroundColor: "white" }}>
+      <AppHeader></AppHeader>
       <FlatList
         data={require("../dummy/cards.js")}
         renderItem={({ item }) => {

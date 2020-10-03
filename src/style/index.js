@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 30,
-    fontWeight: 300,
+    // fontWeight: 200,
     color: "black",
     alignSelf: "center",
     flex: 1,
