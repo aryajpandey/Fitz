@@ -7,6 +7,7 @@ import LoginScreen from "./src/screens/Login.js";
 import HomeScreen from "./src/screens/Home.js";
 import InterestPromptScreen from "./src/screens/InterestPromptScreen.js";
 import RegisterScreen from "./src/screens/Register.js";
+import TrainerScreen from "./src/screens/Trainer.js";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,11 @@ const Navigator = () => {
       <Stack.Screen
         name="Interests"
         component={InterestPromptScreen}
+        options={{ headerLeft: null }}
+      />
+      <Stack.Screen
+        name="Trainer"
+        component={TrainerScreen}
         options={{ headerLeft: null }}
       />
       <Stack.Screen name="Register" component={RegisterScreen} />
