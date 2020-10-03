@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 30,
-    fontWeight: '300',
+    fontWeight: "300",
     color: "black",
     alignSelf: "center",
     flex: 1,
@@ -102,9 +102,9 @@ const styles = StyleSheet.create({
   },
   centeredView: {
     flex: 1,
+    width: "60%",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22,
   },
   modalView: {
     margin: 20,
@@ -136,6 +136,15 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "center",
     fontSize: 25,
+  },
+  surface: {
+    padding: 0,
+    height: 80,
+    width: 80,
+    alignItems: "center",
+    justifyContent: "center",
+    elevation: 2,
+    margin:20
   },
 });
 
