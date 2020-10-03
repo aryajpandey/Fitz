@@ -1,51 +1,32 @@
 "use strict";
 
-var React = require("react-native");
+import { StyleSheet } from "react-native";
 
-var { StyleSheet } = React;
+export const primaryColor = "#2196F3";
+export const secondaryColor = "#2F96FF";
+export const backgroundColor = "white";
+export const foregroundColor = "white";
+export const border = "black";
 
-const primaryColor = "#2196F3";
-const secondaryColor = "#2F96FF";
-const backgroundColor = "white";
-const foregroundColor = "white";
-const border = "black";
-
-const headerTextSize = 25;
-const normalTextSize = 20;
-const smallTextSize = 15;
+export const headerTextSize = 25;
+export const normalTextSize = 20;
+export const smallTextSize = 15;
 
 //Base
-const baseComponent = {
+export const baseComponent = {
   elevation: 5,
   borderRadius: 10,
   padding: 10,
   margin: 10,
-  width: "80%",
+  width: "75%",
   alignSelf: "center",
 };
 
-module.exports = StyleSheet.create({
+const styles = StyleSheet.create({
   //Buttons
   standardButton: {
     ...baseComponent,
-    backgroundColor: primaryColor,
-  },
-
-  buttonText: {
-    color: foregroundColor,
-    alignSelf: "center",
-    fontSize: normalTextSize,
-    textTransform: "uppercase",
-  },
-
-  //Input
-
-  inputText: {
-    ...baseComponent,
-    backgroundColor: backgroundColor,
-    borderColor: border,
-    fontSize: smallTextSize,
-    borderWidth: 1,
+    // backgroundColor: primaryColor,
   },
 
   //Cards
@@ -107,9 +88,9 @@ module.exports = StyleSheet.create({
     backgroundColor: "white",
     // transform: [{ rotate: "20deg" }],
   },
-  header: {
+  subtitle: {
     fontSize: 30,
-    fontWeight: "bold",
+    fontWeight: 300,
     color: "black",
     alignSelf: "center",
     flex: 1,
@@ -157,3 +138,5 @@ module.exports = StyleSheet.create({
     fontSize: 25,
   },
 });
+
+export default styles;
