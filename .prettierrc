@@ -1,0 +1,9 @@
+{
+  "arrowParens": "always",
+  "printWidth": 80,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "singleQuote": false,
+  "trailingComma": "es5",
+  "useTabs": false
+}
