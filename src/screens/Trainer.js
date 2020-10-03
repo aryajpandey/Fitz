@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 import { Rating } from "react-native-ratings";
+import s from "../style";
 
 function TrainerScreen({ navigation, route }) {
   return (
@@ -39,7 +40,7 @@ function TrainerScreen({ navigation, route }) {
         </View>
         <View>
           <Text style={{ fontSize: 25 }}>Biography</Text>
-            <Text>{route.params.item.biography}</Text>
+          <Text>{route.params.item.biography}</Text>
         </View>
         <TouchableHighlight
           style={{ ...s.openButton, backgroundColor: "#2196F3" }}
@@ -53,6 +54,5 @@ function TrainerScreen({ navigation, route }) {
     </View>
   );
 }
-const s = require("../style/global-style.js");
 
 export default TrainerScreen;
