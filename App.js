@@ -1,6 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 
 import LoginScreen from "./src/screens/Login.js";
 import HomeScreen from "./src/screens/Home.js";
@@ -9,7 +10,7 @@ import RegisterScreen from "./src/screens/Register.js";
 
 const Stack = createStackNavigator();
 
-function Navigator() {
+const Navigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -32,12 +33,25 @@ function Navigator() {
       <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
-}
+};
 
-export default function App() {
+const App = () => {
   return (
-    <NavigationContainer>
-      <Navigator />
-    </NavigationContainer>
+    <PaperProvider theme={theme}>
+      <NavigationContainer>
+        <Navigator />
+      </NavigationContainer>
+    </PaperProvider>
   );
-}
+};
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: "purple",
+    accent: "green",
+  },
+};
+
+export default App;
