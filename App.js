@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -7,19 +7,6 @@ import HomeScreen from "./src/screens/Home.js";
 import InterestPromptScreen from "./src/screens/InterestPromptScreen.js";
 import RegisterScreen from "./src/screens/Register.js";
 
-function Login({ navigation }) {
-  return <LoginScreen nav={navigation}></LoginScreen>;
-}
-function Home({ navigation }) {
-  return <HomeScreen nav={navigation}></HomeScreen>;
-}
-function InterestPrompt({ navigation }) {
-  return <InterestPromptScreen nav={navigation}></InterestPromptScreen>;
-}
-function Register({ navigation }) {
-  return <RegisterScreen nav={navigation}></RegisterScreen>;
-}
-
 const Stack = createStackNavigator();
 
 function Navigator() {
@@ -27,22 +14,22 @@ function Navigator() {
     <Stack.Navigator>
       <Stack.Screen
         name="Login"
-        component={Login}
+        component={LoginScreen}
         options={{ headerShown: false }}
       />
-      
-      <Stack.Screen 
-      name="Home" 
-      component={Home} 
-      options={{headerShown: false}} 
+
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
       />
 
       <Stack.Screen
         name="Interests"
-        component={InterestPrompt}
+        component={InterestPromptScreen}
         options={{ headerLeft: null }}
       />
-      <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
 }
