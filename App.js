@@ -32,7 +32,7 @@ const Navigator = () => {
         options={{ headerLeft: null }}
       />
 
-      <Stack.Screen name="Trainer" component={TrainerScreen} />
+      <Stack.Screen name="Trainer" component={TrainerScreen} options={{headerShown: false}}/>
       <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );

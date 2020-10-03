@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     alignSelf: "center",
+    marginTop: 15,
   },
   centeredView: {
     flex: 1,
