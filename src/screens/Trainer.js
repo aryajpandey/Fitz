@@ -58,7 +58,7 @@ function TrainerScreen({ navigation, route }) {
             <Rating
               style={{ alignSelf: "center", top: 10 }}
               ratingCount={5}
-              startingValue={route.params.item.rating}
+              startingValue={trainer.rating}
               readonly
               imageSize={20}
             />
@@ -114,7 +114,7 @@ function TrainerScreen({ navigation, route }) {
             mode="contained"
             style={(s.standardButton, { width: "40%" })}
             onPress={() => {
-              navigation.navigate("Schedule", route);
+              navigation.navigate("Schedule", trainer);
             }}
           >
             Schedule class
