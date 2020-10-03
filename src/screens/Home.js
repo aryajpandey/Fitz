@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Rating } from "react-native-ratings";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Appbar, Searchbar } from "react-native-paper";
+import { Appbar, Portal, Searchbar } from "react-native-paper";
 import styles from "../style";
 
 const AppHeader = ({ header }) => {
@@ -32,9 +32,22 @@ const AppHeader = ({ header }) => {
   );
 };
 
+const TrainerInfo = () => {
+  const showMod = () => setVisible(true);
+  const hideMod = () => setVisible(false);
+
+  return(
+    <Portal>
+      <Modal visible={hideMod}>
+        <Text>Sample</Text>
+      </Modal>
+    </Portal>
+  );
+};
+
 const Trainer = ({ trainer }) => {
   return (
-    <SafeAreaView>
+    <View>
       <View style={styles.card}>
         <View
           style={{ flex: 1, flexDirection: "column", justifyContent: "center" }}
@@ -67,7 +80,7 @@ const Trainer = ({ trainer }) => {
           ></FlatList>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -87,7 +100,7 @@ function HomeScreen({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, paddingTop: 5, backgroundColor: "white" }}>
-      {}
+      <AppHeader></AppHeader>
       <FlatList
         data={require("../dummy/cards.js")}
         renderItem={({ item }) => {
