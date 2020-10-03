@@ -8,6 +8,7 @@ import HomeScreen from "./src/screens/Home.js";
 import InterestPromptScreen from "./src/screens/InterestPromptScreen.js";
 import RegisterScreen from "./src/screens/Register.js";
 import TrainerScreen from "./src/screens/Trainer.js";
+import FavoriteScreen from "./src/screens/Favorite.js";
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,7 @@ const Navigator = () => {
 
       <Stack.Screen name="Trainer" component={TrainerScreen} options={{headerShown: false}}/>
       <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="Favorite" component={FavoriteScreen} options={{headerShown: false}} />
     </Stack.Navigator>
   );
 };
