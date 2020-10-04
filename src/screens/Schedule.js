@@ -20,6 +20,7 @@ import { Rating } from "react-native-ratings";
 import Moment from "moment";
 
 import s from "../style";
+import { getKeyString } from "../utils/numberUtils";
 
 const CustomChip = ({ item, color }) => {
   return (
@@ -29,6 +30,7 @@ const CustomChip = ({ item, color }) => {
         {
           paddingTop: 10,
           paddingBottom: 10,
+          marginVertical: 5,
           width: "80%",
           backgroundColor: color,
         },
@@ -167,11 +169,11 @@ function ScheduleScreen({ navigation, route }) {
                   <CustomChip
                     item={item}
                     color={colorArray[interests.indexOf(item)]}
-                  ></CustomChip>
+                  />
                 </TouchableOpacity>
               );
             }}
-            keyExtractor={(item) => interests.indexOf(item)}
+            keyExtractor={getKeyString}
             numColumns={2}
           ></FlatList>
         </Card>
@@ -247,7 +249,7 @@ function ScheduleScreen({ navigation, route }) {
             if (a === 0) {
               setDialog(true);
             } else {
-              navigation.navigate("RegisteredClass", {trainer, date});
+              navigation.navigate("RegisteredClass", { trainer, date });
             }
           }}
         >

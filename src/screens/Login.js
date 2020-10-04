@@ -10,6 +10,7 @@ import {
 
 import { Button, TextInput } from "react-native-paper";
 
+import Logo from "../component/Logo";
 import s from "../style";
 
 const background = {
@@ -28,14 +29,7 @@ function LoginScreen({ navigation }) {
         style={{ flex: 1, resizeMode: "cover", justifyContent: "center" }}
         imageStyle={{ opacity: 0.5 }}
       >
-        <View style={{ flex: 1.5, top: 80 }}>
-          <Image
-            resizeMode={"stretch"}
-            source={require("../../assets/logo.png")}
-            style={s.logo}
-          />
-          <Text style={s.subtitle}>Train Anywhere</Text>
-        </View>
+        <Logo />
         <View style={{ flex: 2 }}>
           <TextInput
             placeholder="Username"
@@ -47,11 +41,8 @@ function LoginScreen({ navigation }) {
             }}
             mode="outlined"
             style={{
-              height: 50,
-              marginBottom: 10,
-              marginLeft: 40,
-              marginRight: 40,
-              borderRadius: 100,
+              marginHorizontal: 40,
+              marginTop: 20,
             }}
           ></TextInput>
           <TextInput
@@ -64,11 +55,8 @@ function LoginScreen({ navigation }) {
             value={password}
             mode="outlined"
             style={{
-              height: 50,
-              marginBottom: 10,
-              marginLeft: 40,
-              marginRight: 40,
-              borderRadius: 15,
+              marginHorizontal: 40,
+              marginVertical: 20,
             }}
           ></TextInput>
           <Button

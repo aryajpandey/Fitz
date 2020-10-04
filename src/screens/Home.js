@@ -11,6 +11,7 @@ import { Rating } from "react-native-ratings";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Appbar, Searchbar } from "react-native-paper";
 import styles from "../style";
+import { getKeyString } from "../utils/numberUtils";
 
 const Trainer = ({ trainer }) => {
   const money =
@@ -48,7 +49,7 @@ const Trainer = ({ trainer }) => {
         <View style={{ flex: 1 }}>
           <FlatList
             style={{ padding: 20 }}
-            keyExtractor={(item) => item.id}
+            keyExtractor={getKeyString}
             data={trainer.categories}
             renderItem={({ item }) => {
               return <Text style={{ fontSize: 15 }}>{item}</Text>;
@@ -80,20 +81,21 @@ const wait = (timeout) => {
 };
 
 function HomeScreen({ navigation, route }) {
-
   const AppHeader = ({ header }) => {
     return (
       <Appbar.Header style={{}}>
-        <Appbar.BackAction
-          onPress={() => {
-            navigation.navigate("Home");
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            height: "75%",
+            marginHorizontal: 18,
           }}
-        />
-        <View style={{ flexDirection: "row", paddingBottom: 5 }}>
+        >
           <Searchbar
             style={{
               borderRadius: 25,
-              width: "92%",
+              width: "100%",
             }}
             placeholder="Find"
           ></Searchbar>
@@ -125,7 +127,7 @@ function HomeScreen({ navigation, route }) {
             </TouchableOpacity>
           );
         }}
-        keyExtractor={(item) => item.id + item.age}
+        keyExtractor={getKeyString}
         numColumns={1}
         contentContainerStyle={{
           backgroundColor: "white",

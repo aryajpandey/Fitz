@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Button } from "react-native-paper";
 import s from "../style";
+import { getKeyString } from "../utils/numberUtils";
 
 const Card = ({ item, color }) => {
   return (
@@ -38,7 +39,7 @@ const Card = ({ item, color }) => {
   );
 };
 
-function InterestPromptScreen({ navigation , route}) {
+function InterestPromptScreen({ navigation, route }) {
   const selected = "#f2f2f2";
   const unselected = "white";
 
@@ -60,13 +61,11 @@ function InterestPromptScreen({ navigation , route}) {
 
   return (
     <View style={{ flex: 1, paddingTop: 5, backgroundColor: "white" }}>
-      <View style={{ elevation: 10, padding: 10 }}>
-        <Text style={{ fontSize: 20, padding: 10 }}>
-          Choose the categories you are interested in
-        </Text>
+      <View style={{ elevation: 10, padding: 8, marginTop: 30 }}>
+        <Text style={{ fontSize: 32, padding: 15 }}>Choose your interests</Text>
       </View>
       <FlatList
-        style={{ padding: 20 }}
+        style={{ padding: 15 }}
         data={interests}
         renderItem={({ item }) => {
           return (
@@ -92,7 +91,7 @@ function InterestPromptScreen({ navigation , route}) {
             </TouchableOpacity>
           );
         }}
-        keyExtractor={(item) => interests.indexOf(item)}
+        keyExtractor={getKeyString}
         numColumns={3}
         contentContainerStyle={{
           backgroundColor: "white",
@@ -102,7 +101,7 @@ function InterestPromptScreen({ navigation , route}) {
         style={s.standardButton}
         mode="contained"
         onPress={() => {
-          navigation.navigate("Home", {username, interests});
+          navigation.navigate("Home", { username, interests });
         }}
       >
         Finish
