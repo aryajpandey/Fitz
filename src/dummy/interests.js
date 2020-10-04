@@ -20,4 +20,29 @@ module.exports = [
   {
     name: "Fitness training",
   },
+  {
+    name: "Marathon training",
+  },
+  {
+    name: "Swimming",
+  },
+  {
+    name: "Martial art",
+  },
+  {
+    name: "Boxing",
+  },
+
+  {
+    name: "Personal defense",
+  },
+  {
+    name: "Aerobics",
+  },
+  {
+    name: "Tai Chi",
+  },
+  {
+    name: "HIIT",
+  },
 ];

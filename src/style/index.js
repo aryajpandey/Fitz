@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "black",
     alignSelf: "center",
+    fontWeight: 'bold',
     flex: 1,
   },
   logo: {
