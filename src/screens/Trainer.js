@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  FlatList,
+  TouchableHighlight,
+  StyleSheet,
+} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import {
   Avatar,
@@ -13,7 +20,9 @@ import {
   Surface,
 } from "react-native-paper";
 import { Rating } from "react-native-ratings";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import s from "../style";
+import { Marker } from "react-native-maps";
 
 function TrainerScreen({ navigation, route }) {
   const trainer = route.params.item;
@@ -30,6 +39,8 @@ function TrainerScreen({ navigation, route }) {
     padding: 5,
     borderRadius: 10,
   };
+
+  console.log(trainer.coordinates[1]);
 
   return (
     <ScrollView>
@@ -140,11 +151,40 @@ function TrainerScreen({ navigation, route }) {
       </Card>
 
       {/*Map*/}
-
       <Card style={cardStyle}>
         <Card.Content>
           <Title>Location</Title>
-          <Surface style={s.surface}>{/*Map*/}</Surface>
+          <Surface style={(s.surface, { width: "100%", height: 300 })}>
+            <View
+              style={{
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                justifyContent: "flex-end",
+                alignItems: "center",
+                position: "absolute",
+              }}
+            >
+              <MapView
+                style={{ ...StyleSheet.absoluteFillObject }}
+                initialRegion={{
+                  longitude: Number(trainer.coordinates[0]),
+                  latitude: Number(trainer.coordinates[1]),
+                  latitudeDelta: 0.01,
+                  longitudeDelta: 0.01,
+                }}
+              >
+                <Marker
+                  coordinate={{
+                    latitude: Number(trainer.coordinates[1]),
+                    longitude: Number(trainer.coordinates[0]),
+                  }}
+                  title={trainer.name}
+                ></Marker>
+              </MapView>
+            </View>
+          </Surface>
         </Card.Content>
       </Card>
     </ScrollView>
@@ -152,50 +192,3 @@ function TrainerScreen({ navigation, route }) {
 }
 
 export default TrainerScreen;
-
-/*
-<View style={s.modalView}>
-<View style={{ flexDirection: "row" }}>
-  <View>
-    <Text style={s.modalText}>{route.params.item.name}</Text>
-    <Image
-      style={
-        (s.cardProfileImage,
-        { width: 150, height: 150, borderRadius: 20 })
-      }
-      source={route.params.item.image}
-    ></Image>
-    <Rating
-      ratingCount={5}
-      startingValue={route.params.item.rating}
-      readonly
-      imageSize={20}
-    />
-  </View>
-  <View>
-    <Text style={(s.modalText, { fontSize: 20, top: 40, padding: 20 })}>
-      {'"' + route.params.item.description + '"'}
-    </Text>
-    <FlatList
-      keyExtractor={(item) => item.id}
-      style={{ padding: 20, top: 20 }}
-      data={route.params.item.categories}
-      renderItem={({ item }) => {
-        return <Text style={{ fontSize: 20 }}>{item}</Text>;
-      }}
-    ></FlatList>
-  </View>
-</View>
-<View>
-  <Text style={{ fontSize: 25 }}>Biography</Text>
-  <Text>{route.params.item.biography}</Text>
-</View>
-<TouchableHighlight
-  style={{ ...s.openButton, backgroundColor: "#2196F3" }}
-  onPress={() => {
-    navigation.goBack(null);
-  }}
->
-  <Text style={s.textStyle}>Close</Text>
-</TouchableHighlight>
-</View>*/
