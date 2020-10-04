@@ -37,7 +37,7 @@ function TrainerScreen({ navigation, route }) {
       <Card style={cardStyle}>
         <View
           style={{
-            height: 150,
+            padding: 15,
             justifyContent: "center",
             flex: 1,
             flexDirection: "row",
@@ -71,32 +71,32 @@ function TrainerScreen({ navigation, route }) {
               justifyContent: "flex-start",
             }}
           >
-            <Card.Title
-              style={{
-                alignSelf: "flex-end",
-              }}
-              title={trainer.name}
-            />
+            <Card.Title title={trainer.name} />
             <Text>{trainer.description} </Text>
           </View>
         </View>
-      </Card>
 
-      {/*Categories*/}
-      <Card style={cardStyle}>
-        <Card.Content>
-          <Title>Categories</Title>
-          <View
-            style={{
-              flexDirection: "row",
-              alignSelf: "baseline",
-              width: "100%",
-              flexWrap: "wrap",
-            }}
-          >
-            {categories}
-          </View>
-        </Card.Content>
+        {/*Categories*/}
+        <View
+          style={{
+            flexDirection: "row",
+            alignSelf: "baseline",
+            width: "100%",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            margin: 4,
+          }}
+        >
+          {categories}
+        </View>
+
+        {/*Biography*/}
+        <Title>Biography</Title>
+        <Paragraph>{trainer.biography}</Paragraph>
+
+        {/*Map*/}
+        <Title>Location</Title>
+        <Surface style={s.surface}>{/*Map*/}</Surface>
       </Card>
 
       {/*Buttons*/}
@@ -117,35 +117,9 @@ function TrainerScreen({ navigation, route }) {
               navigation.navigate("Schedule", trainer);
             }}
           >
-            Schedule class
-          </Button>
-          <Button
-            mode="contained"
-            style={(s.standardButton, { width: "40%" })}
-            onPress={() => {
-              navigation.goBack(null, route);
-            }}
-          >
-            Close
+            Schedule Class
           </Button>
         </View>
-      </Card>
-
-      {/*Biography*/}
-      <Card style={cardStyle}>
-        <Card.Content>
-          <Title>Biography</Title>
-          <Paragraph>{trainer.biography}</Paragraph>
-        </Card.Content>
-      </Card>
-
-      {/*Map*/}
-
-      <Card style={cardStyle}>
-        <Card.Content>
-          <Title>Location</Title>
-          <Surface style={s.surface}>{/*Map*/}</Surface>
-        </Card.Content>
       </Card>
     </ScrollView>
   );

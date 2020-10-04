@@ -15,7 +15,7 @@ export const smallTextSize = 15;
 //Base
 export const baseComponent = {
   elevation: 5,
-  borderRadius: 10,
+  borderRadius: 15,
   padding: 10,
   margin: 10,
   width: "75%",
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     elevation: 2,
-    margin:20
+    margin: 20,
   },
 });
 
