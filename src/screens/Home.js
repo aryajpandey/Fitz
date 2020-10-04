@@ -12,28 +12,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Appbar, Portal, Searchbar } from "react-native-paper";
 import styles from "../style";
 
-const AppHeader = ({ header }) => {
-  return (
-    <Appbar.Header
-      style={{
-        height: 80,
-        backgroundColor: "#ffea00",
-      }}
-    >
-      <Appbar.BackAction onPress={() => {navigation.navigate("Favorite")}} />
-      <View style={{ flexDirection: "row" }}>
-        <Searchbar
-          style={{
-            borderRadius: 25,
-            width: 300,
-          }}
-          placeholder="Find"
-        ></Searchbar>
-      </View>
-    </Appbar.Header>
-  );
-};
-
 const Trainer = ({ trainer }) => {
   return (
     <SafeAreaView>
@@ -80,6 +58,28 @@ const wait = (timeout) => {
 };
 
 function HomeScreen({ route, navigation }) {
+
+  const AppHeader = ({ header }) => {
+    return (
+      <Appbar.Header
+        style={{
+          height: 100,
+        }}
+      >
+        <Appbar.BackAction onPress={} />
+        <View style={{ flexDirection: "row" }}>
+          <Searchbar
+            style={{
+              borderRadius: 25,
+              width: 300,
+            }}
+            placeholder="Find"
+          ></Searchbar>
+        </View>
+      </Appbar.Header>
+    );
+  };
+  
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {
