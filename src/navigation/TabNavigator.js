@@ -1,5 +1,6 @@
 import React from "react";
 import HomeScreen from "../screens/Home.js";
+import FavoritesScreen from "../screens/Favorites";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -27,7 +28,7 @@ function TabNavigator() {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Favorites" component={HomeScreen} />
+      <Tab.Screen name="Favorites" component={FavoritesScreen} />
       <Tab.Screen name="Profile" component={HomeScreen} />
     </Tab.Navigator>
   );

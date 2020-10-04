@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 30,
-    fontWeight: "300",
     color: "black",
     alignSelf: "center",
     flex: 1,
@@ -108,6 +107,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     alignSelf: "center",
+    marginTop: 15,
   },
   centeredView: {
     flex: 1,

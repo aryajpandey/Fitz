@@ -10,29 +10,7 @@ import {
 import { Rating } from "react-native-ratings";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Appbar, Searchbar } from "react-native-paper";
-
 import styles from "../style";
-import TabNavigator from "../navigation/TabNavigator";
-
-const AppHeader = ({ header }) => {
-  return (
-    <Appbar.Header
-      style={{
-        height: 80,
-        backgroundColor: "#ffea00",
-      }}
-    >
-      <View style={{ flexDirection: "row" }}>
-        <Searchbar
-          style={{
-            borderRadius: 25,
-          }}
-          placeholder="Find"
-        />
-      </View>
-    </Appbar.Header>
-  );
-};
 
 const Trainer = ({ trainer }) => {
   return (
@@ -80,6 +58,31 @@ const wait = (timeout) => {
 };
 
 function HomeScreen({ route, navigation }) {
+  const AppHeader = ({ header }) => {
+    return (
+      <Appbar.Header
+        style={{
+          height: 100,
+        }}
+      >
+        <Appbar.BackAction
+          onPress={() => {
+            navigation.navigate("Home");
+          }}
+        />
+        <View style={{ flexDirection: "row" }}>
+          <Searchbar
+            style={{
+              borderRadius: 25,
+              width: "92%",
+            }}
+            placeholder="Find"
+          ></Searchbar>
+        </View>
+      </Appbar.Header>
+    );
+  };
+
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {
@@ -88,7 +91,8 @@ function HomeScreen({ route, navigation }) {
   }, []);
 
   return (
-    <View style={{ flex: 1, paddingTop: 5, backgroundColor: "white" }}>
+    <View style={{ flex: 1, backgroundColor: "white" }}>
+      <AppHeader />
       <FlatList
         data={require("../dummy/cards.js")}
         renderItem={({ item }) => {
@@ -102,7 +106,7 @@ function HomeScreen({ route, navigation }) {
             </TouchableOpacity>
           );
         }}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id + item.age}
         numColumns={1}
         contentContainerStyle={{
           backgroundColor: "white",
