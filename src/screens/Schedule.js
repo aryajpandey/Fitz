@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { Rating } from "react-native-ratings";
 import {
   Avatar,
   Button,
