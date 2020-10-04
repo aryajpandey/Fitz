@@ -12,6 +12,7 @@ import {
   Chip,
   Divider,
   Surface,
+  Appbar,
 } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import AwesomeIcon from "react-native-vector-icons/FontAwesome";
@@ -74,7 +75,14 @@ function ScheduleScreen({ navigation, route }) {
   return (
     <View>
       <ScrollView style={{ height: "100%" }}>
-        {/*Header*/}
+        <Appbar.Header style={{}}>
+          <Appbar.BackAction
+            onPress={() => {
+              navigation.navigate("Trainer");
+            }}
+          />
+          <Appbar.Content title="Schedule"></Appbar.Content>
+        </Appbar.Header>
         <Card style={cardStyle}>
           <View
             style={{

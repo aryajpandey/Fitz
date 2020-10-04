@@ -20,7 +20,11 @@ const StackNavigator = () => {
         options={{ headerShown: false }}
       />
 
-      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen
+        name="Register"
+        component={RegisterScreen}
+        options={{ headerShown: false }}
+      />
 
       <Stack.Screen
         name="Home"
@@ -33,8 +37,17 @@ const StackNavigator = () => {
         component={InterestPromptScreen}
         options={{ headerLeft: null }}
       />
-      <Stack.Screen name="Trainer" component={TrainerScreen} />
-      <Stack.Screen name="Schedule" component={ScheduleScreen} />
+      <Stack.Screen
+        name="Trainer"
+        component={TrainerScreen}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Schedule"
+        component={ScheduleScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="RegisteredClass" component={RegisteredClass} />
     </Stack.Navigator>
   );

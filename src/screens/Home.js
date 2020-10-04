@@ -83,17 +83,13 @@ function HomeScreen({ navigation, route }) {
 
   const AppHeader = ({ header }) => {
     return (
-      <Appbar.Header
-        style={{
-          height: 100,
-        }}
-      >
+      <Appbar.Header style={{}}>
         <Appbar.BackAction
           onPress={() => {
             navigation.navigate("Home");
           }}
         />
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row", paddingBottom: 5 }}>
           <Searchbar
             style={{
               borderRadius: 25,

@@ -10,7 +10,7 @@ import {
 import CustomInput from "../component/CustomInput";
 
 import s from "../style";
-import { Button, TextInput } from "react-native-paper";
+import { Button, TextInput, Appbar, Searchbar } from "react-native-paper";
 import styles from "../style";
 
 const url = {
@@ -34,6 +34,14 @@ const RegisterScreen = ({ navigation, route }) => {
 
   return (
     <View style={s.backgroundStyle}>
+      <Appbar.Header style={{}}>
+        <Appbar.BackAction
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
+        />
+        <Appbar.Content title="Register"></Appbar.Content>
+      </Appbar.Header>
       <ImageBackground
         source={url}
         style={{ flex: 1, resizeMode: "cover", justifyContent: "center" }}
