@@ -13,6 +13,15 @@ import { Appbar, Searchbar } from "react-native-paper";
 import styles from "../style";
 
 const Trainer = ({ trainer }) => {
+  const money =
+    trainer.price <= 8
+      ? "$"
+      : trainer.price <= 12
+      ? "$$"
+      : trainer.price <= 16
+      ? "$$$"
+      : "$$$$";
+
   return (
     <SafeAreaView>
       <View style={styles.card}>
@@ -46,6 +55,19 @@ const Trainer = ({ trainer }) => {
             }}
           ></FlatList>
         </View>
+        <View style={{ flex: 0.4 }}>
+          <Text
+            style={{
+              alignSelf: "center",
+              right: 10,
+              color: "#32a852",
+              fontWeight: "bold",
+              letterSpacing: 2,
+            }}
+          >
+            {money}
+          </Text>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -57,7 +79,8 @@ const wait = (timeout) => {
   });
 };
 
-function HomeScreen({ route, navigation }) {
+function HomeScreen({ navigation, route }) {
+
   const AppHeader = ({ header }) => {
     return (
       <Appbar.Header
@@ -87,7 +110,7 @@ function HomeScreen({ route, navigation }) {
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-    wait(2000).then(() => setRefreshing(false));
+    wait(700).then(() => setRefreshing(false));
   }, []);
 
   return (

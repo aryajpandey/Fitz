@@ -123,7 +123,17 @@ function ScheduleScreen({ navigation, route }) {
         </Card>
 
         {/*Categories*/}
-        <Card style={cardStyle}>
+        <Card
+          style={
+            (cardStyle,
+            {
+              padding: 15,
+              width: "95%",
+              alignSelf: "center",
+              borderRadius: 10,
+            })
+          }
+        >
           <FlatList
             style={{ width: "100%" }}
             data={interests}
@@ -174,20 +184,7 @@ function ScheduleScreen({ navigation, route }) {
                     setMode("date");
                   }}
                 >
-                  choose day
-                </Button>
-              </View>
-              <View>
-                <Button
-                  icon="clock"
-                  mode="contained"
-                  style={(s.standardButton, { width: "100%" })}
-                  onPress={() => {
-                    setShow(true);
-                    setMode("time");
-                  }}
-                >
-                  choose time
+                  choose date
                 </Button>
               </View>
             </View>
@@ -202,7 +199,10 @@ function ScheduleScreen({ navigation, route }) {
                   const currentDate = selectedDate || date;
                   setShow(Platform.OS === "ios");
                   setDate(currentDate);
-                  // console.log(currentDate);
+                  if (mode === "date") {
+                    setMode("time");
+                    setShow(true);
+                  }
                 }}
               />
             )}
@@ -239,7 +239,7 @@ function ScheduleScreen({ navigation, route }) {
             if (a === 0) {
               setDialog(true);
             } else {
-              navigation.navigate("RegisteredClass", trainer);
+              navigation.navigate("RegisteredClass", {trainer, date});
             }
           }}
         >

@@ -38,9 +38,11 @@ const Card = ({ item, color }) => {
   );
 };
 
-function InterestPromptScreen({ navigation }) {
+function InterestPromptScreen({ navigation , route}) {
   const selected = "#f2f2f2";
   const unselected = "white";
+
+  const username = route.params.username;
 
   const interests = require("../dummy/interests.js");
   const [array, setArray] = React.useState(new Array(interests.length).fill(0));
@@ -100,7 +102,7 @@ function InterestPromptScreen({ navigation }) {
         style={s.standardButton}
         mode="contained"
         onPress={() => {
-          navigation.navigate("Home", { post: "something" });
+          navigation.navigate("Home", {username, interests});
         }}
       >
         Finish

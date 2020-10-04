@@ -18,11 +18,19 @@ const url = {
     "https://images.unsplash.com/flagged/photo-1556746834-cbb4a38ee593?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80",
 };
 
-const RegisterScreen = ({ navigation }) => {
-  const [username, onChangeUsername] = React.useState("");
-  const [password, onChangePassword] = React.useState("");
+const RegisterScreen = ({ navigation, route }) => {
+  const [username, onChangeUsername] = React.useState(route.params.username);
+  const [password, onChangePassword] = React.useState(route.params.password);
   const [confirmPassword, onChangeConfirmPassword] = React.useState("");
   const [email, onChangeEmail] = React.useState("");
+
+  const block = {
+    height: 50,
+    marginBottom: 10,
+    marginLeft: 40,
+    marginRight: 40,
+    borderRadius: 10,
+  };
 
   return (
     <View style={s.backgroundStyle}>
@@ -43,13 +51,7 @@ const RegisterScreen = ({ navigation }) => {
             style={s.input}
             onChangeText={(text) => onChangeUsername(text)}
             mode="outlined"
-            style={{
-              height: 50,
-              marginBottom: 10,
-              marginLeft: 40,
-              marginRight: 40,
-              borderRadius: 10,
-            }}
+            style={block}
             value={username}
             placeholder="Username"
           />
@@ -58,13 +60,7 @@ const RegisterScreen = ({ navigation }) => {
             style={s.input}
             onChangeText={(text) => onChangeEmail(text)}
             mode="outlined"
-            style={{
-              height: 50,
-              marginBottom: 10,
-              marginLeft: 40,
-              marginRight: 40,
-              borderRadius: 10,
-            }}
+            style={block}
             value={email}
           />
           <TextInput
@@ -73,13 +69,7 @@ const RegisterScreen = ({ navigation }) => {
             style={s.input}
             onChangeText={(text) => onChangePassword(text)}
             mode="outlined"
-            style={{
-              height: 50,
-              marginBottom: 10,
-              marginLeft: 40,
-              marginRight: 40,
-              borderRadius: 10,
-            }}
+            style={block}
             value={password}
           />
           <TextInput
@@ -88,20 +78,14 @@ const RegisterScreen = ({ navigation }) => {
             style={s.input}
             onChangeText={(text) => onChangeConfirmPassword(text)}
             mode="outlined"
-            style={{
-              height: 50,
-              marginBottom: 10,
-              marginLeft: 40,
-              marginRight: 40,
-              borderRadius: 10,
-            }}
+            style={block}
             value={confirmPassword}
           />
           <Button
             style={s.standardButton}
             mode="contained"
             onPress={() => {
-              navigation.navigate("Interests");
+              navigation.navigate("Interests", username);
             }}
           >
             Next

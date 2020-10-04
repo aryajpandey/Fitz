@@ -76,7 +76,7 @@ function LoginScreen({ navigation }) {
             mode="contained"
             style={s.standardButton}
             onPress={() => {
-              navigation.navigate("Home");
+              navigation.navigate("Home", username);
             }}
           >
             Login
@@ -89,7 +89,7 @@ function LoginScreen({ navigation }) {
               { elevation: 0, backgroundColor: "white" },
             ]}
             onPress={() => {
-              navigation.navigate("Register");
+              navigation.navigate("Register", { username, password });
             }}
           >
             Register

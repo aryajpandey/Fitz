@@ -7,6 +7,7 @@ import RegisterScreen from "../screens/Register.js";
 import TrainerScreen from "../screens/Trainer.js";
 import TabNavigator from "./TabNavigator.js";
 import ScheduleScreen from "../screens/Schedule";
+import RegisteredClass from "../screens/RegisteredClass";
 
 const Stack = createStackNavigator();
 
@@ -33,8 +34,8 @@ const StackNavigator = () => {
         options={{ headerLeft: null }}
       />
       <Stack.Screen name="Trainer" component={TrainerScreen} />
-
       <Stack.Screen name="Schedule" component={ScheduleScreen} />
+      <Stack.Screen name="RegisteredClass" component={RegisteredClass} />
     </Stack.Navigator>
   );
 };
