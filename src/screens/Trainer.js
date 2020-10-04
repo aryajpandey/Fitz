@@ -93,7 +93,7 @@ function TrainerScreen({ navigation, route }) {
             }}
           >
             <Text style={s.cardProfileTitle}>{trainer.name} </Text>
-            <Text>{trainer.description} </Text>
+            <Text>{trainer.description}</Text>
           </View>
         </View>
 
