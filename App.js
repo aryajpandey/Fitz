@@ -8,6 +8,7 @@ import HomeScreen from "./src/screens/Home.js";
 import InterestPromptScreen from "./src/screens/InterestPromptScreen.js";
 import RegisterScreen from "./src/screens/Register.js";
 import TrainerScreen from "./src/screens/Trainer.js";
+import ScheduleScreen from "./src/screens/Schedule.js";
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,11 @@ const Navigator = () => {
       <Stack.Screen
         name="Trainer"
         component={TrainerScreen}
+        options={{ headerLeft: null }}
+      />
+      <Stack.Screen
+        name="Schedule"
+        component={ScheduleScreen}
         options={{ headerLeft: null }}
       />
       <Stack.Screen name="Register" component={RegisterScreen} />
