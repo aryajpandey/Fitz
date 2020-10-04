@@ -18,6 +18,8 @@ import {
   Chip,
   Divider,
   Surface,
+  Appbar,
+  Searchbar,
 } from "react-native-paper";
 import { Rating } from "react-native-ratings";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
@@ -44,7 +46,13 @@ function TrainerScreen({ navigation, route }) {
 
   return (
     <ScrollView>
-      {/*Header*/}
+      <Appbar.Header style={{}}>
+        <Appbar.BackAction
+          onPress={() => {
+            navigation.navigate("Home");
+          }}
+        />
+      </Appbar.Header>
       <Card style={cardStyle}>
         <View
           style={{
