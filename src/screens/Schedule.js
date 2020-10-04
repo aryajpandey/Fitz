@@ -73,7 +73,7 @@ function ScheduleScreen({ navigation, route }) {
 
   return (
     <View>
-      <ScrollView style={{height:'100%'}}>
+      <ScrollView style={{ height: "100%" }}>
         {/*Header*/}
         <Card style={cardStyle}>
           <View
@@ -202,7 +202,7 @@ function ScheduleScreen({ navigation, route }) {
                   const currentDate = selectedDate || date;
                   setShow(Platform.OS === "ios");
                   setDate(currentDate);
-                  console.log(currentDate);
+                  // console.log(currentDate);
                 }}
               />
             )}

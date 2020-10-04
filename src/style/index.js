@@ -61,6 +61,15 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 100,
   },
+  cardProfileTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  cardProfileText: {
+    textAlign: "justify",
+    paddingHorizontal: 25,
+    paddingVertical: 2,
+  },
   card: {
     paddingTop: 15,
     paddingBottom: 15,

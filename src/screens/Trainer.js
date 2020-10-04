@@ -40,7 +40,7 @@ function TrainerScreen({ navigation, route }) {
     borderRadius: 10,
   };
 
-  console.log(trainer.coordinates[1]);
+  // console.log(trainer.coordinates[1]);
 
   return (
     <ScrollView>
@@ -48,7 +48,7 @@ function TrainerScreen({ navigation, route }) {
       <Card style={cardStyle}>
         <View
           style={{
-            padding: 15,
+            paddingVertical: 10,
             justifyContent: "center",
             flex: 1,
             flexDirection: "row",
@@ -82,7 +82,7 @@ function TrainerScreen({ navigation, route }) {
               justifyContent: "flex-start",
             }}
           >
-            <Card.Title title={trainer.name} />
+            <Text style={s.cardProfileTitle}>{trainer.name} </Text>
             <Text>{trainer.description} </Text>
           </View>
         </View>
@@ -102,47 +102,32 @@ function TrainerScreen({ navigation, route }) {
         </View>
 
         {/*Biography*/}
-        <Title>Biography</Title>
-        <Paragraph>{trainer.biography}</Paragraph>
+        <Paragraph style={s.cardProfileText}>{trainer.biography}</Paragraph>
 
-        {/*Map*/}
-        <Title>Location</Title>
-        <Surface style={s.surface}>{/*Map*/}</Surface>
-      </Card>
-
-      {/*Buttons*/}
-      <Card style={cardStyle}>
-        <View
-          style={{
-            padding: 5,
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            flexWrap: "wrap",
-          }}
-        >
-          <Button
-            mode="contained"
-            style={(s.standardButton, { width: "40%" })}
-            onPress={() => {
-              navigation.navigate("Schedule", trainer);
+        {/*Buttons*/}
+        <Card style={cardStyle}>
+          <View
+            style={{
+              padding: 5,
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              flexWrap: "wrap",
             }}
           >
-            Schedule Class
-          </Button>
-        </View>
-      </Card>
+            <Button
+              mode="contained"
+              style={(s.standardButton, { width: "60%" })}
+              onPress={() => {
+                navigation.navigate("Schedule", trainer);
+              }}
+            >
+              Schedule Class
+            </Button>
+          </View>
+        </Card>
 
-      {/*Biography*/}
-      <Card style={cardStyle}>
-        <Card.Content>
-          <Title>Biography</Title>
-          <Paragraph>{trainer.biography}</Paragraph>
-        </Card.Content>
-      </Card>
-
-      {/*Map*/}
-      <Card style={cardStyle}>
+        {/*Map*/}
         <Card.Content>
           <Title>Location</Title>
           <Surface style={(s.surface, { width: "100%", height: 300 })}>

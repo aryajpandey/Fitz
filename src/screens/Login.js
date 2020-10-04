@@ -54,7 +54,7 @@ function LoginScreen({ navigation }) {
         <Button
           icon="account-plus-outline"
           mode="outlined"
-          style={s.standardButton}
+          style={[s.standardButton, { elevation: 0 }]}
           onPress={() => {
             navigation.navigate("Register");
           }}

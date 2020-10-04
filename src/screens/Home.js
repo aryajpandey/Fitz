@@ -10,7 +10,9 @@ import {
 import { Rating } from "react-native-ratings";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Appbar, Searchbar } from "react-native-paper";
+
 import styles from "../style";
+import TabNavigator from "../navigation/TabNavigator";
 
 const AppHeader = ({ header }) => {
   return (
@@ -26,7 +28,7 @@ const AppHeader = ({ header }) => {
             borderRadius: 25,
           }}
           placeholder="Find"
-        ></Searchbar>
+        />
       </View>
     </Appbar.Header>
   );
@@ -87,7 +89,6 @@ function HomeScreen({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, paddingTop: 5, backgroundColor: "white" }}>
-      {}
       <FlatList
         data={require("../dummy/cards.js")}
         renderItem={({ item }) => {
