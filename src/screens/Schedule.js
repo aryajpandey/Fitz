@@ -216,11 +216,11 @@ function ScheduleScreen({ navigation, route }) {
               flexDirection: "column",
             }}
           >
-            <Text style={{ alignSelf: "center", fontSize: 40 }}>
-              {Moment(date).format("HH:mm")}
-            </Text>
             <Text style={{ alignSelf: "center", fontSize: 30 }}>
-              {Moment(date).format("D, MMMM")}
+              {Moment(date).format("Do MMMM")}
+            </Text>
+            <Text style={{ alignSelf: "center", fontSize: 40 }}>
+              {Moment(date).format("h:mm a")}
             </Text>
           </View>
         </Card>
