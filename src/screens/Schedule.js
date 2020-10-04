@@ -16,7 +16,6 @@ import {
 } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import AwesomeIcon from "react-native-vector-icons/FontAwesome";
-import { Rating } from "react-native-ratings";
 import Moment from "moment";
 
 import s from "../style";
@@ -107,11 +106,13 @@ function ScheduleScreen({ navigation, route }) {
                 source={trainer.image}
               />
               <Rating
-                style={{ alignSelf: "center", top: 10 }}
-                ratingCount={5}
-                startingValue={trainer.rating}
+                ratingCount={trainer.rating}
                 readonly
+                ratingColor="white"
                 imageSize={20}
+                type="custom"
+                ratingImage={require("../../assets/star2.jpg")}
+                style={{ paddingVertical: 10 }}
               />
             </View>
             <View

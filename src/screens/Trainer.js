@@ -75,11 +75,13 @@ function TrainerScreen({ navigation, route }) {
               source={trainer.image}
             />
             <Rating
-              style={{ alignSelf: "center", top: 10 }}
-              ratingCount={5}
-              startingValue={trainer.rating}
+              ratingCount={trainer.rating}
               readonly
+              ratingColor="white"
               imageSize={20}
+              type="custom"
+              ratingImage={require("../../assets/star2.jpg")}
+              style={{ paddingVertical: 10 }}
             />
           </View>
           <View

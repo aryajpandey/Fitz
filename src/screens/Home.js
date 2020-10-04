@@ -6,12 +6,14 @@ import {
   Image,
   RefreshControl,
   FlatList,
+  ImageBackground,
 } from "react-native";
 import { Rating } from "react-native-ratings";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Appbar, Searchbar } from "react-native-paper";
 import styles from "../style";
 import { getKeyString } from "../utils/numberUtils";
+import { ScrollView } from "react-native-gesture-handler";
 
 const Trainer = ({ trainer }) => {
   const money =
@@ -27,7 +29,11 @@ const Trainer = ({ trainer }) => {
     <SafeAreaView>
       <View style={styles.card}>
         <View
-          style={{ flex: 1, flexDirection: "column", justifyContent: "center" }}
+          style={{
+            flex: 1,
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
         >
           <Image style={styles.cardProfileImage} source={trainer.image} />
           <Text
@@ -40,10 +46,13 @@ const Trainer = ({ trainer }) => {
             {trainer.name}
           </Text>
           <Rating
-            ratingCount={5}
-            startingValue={trainer.rating}
+            ratingCount={trainer.rating}
             readonly
+            ratingColor="white"
             imageSize={20}
+            type="custom"
+            ratingImage={require("../../assets/star2.jpg")}
+            style={{ paddingVertical: 10 }}
           />
         </View>
         <View style={{ flex: 1 }}>
@@ -54,7 +63,7 @@ const Trainer = ({ trainer }) => {
             renderItem={({ item }) => {
               return <Text style={{ fontSize: 15 }}>{item}</Text>;
             }}
-          ></FlatList>
+          />
         </View>
         <View style={{ flex: 0.4 }}>
           <Text
@@ -98,7 +107,7 @@ function HomeScreen({ navigation, route }) {
               width: "100%",
             }}
             placeholder="Find"
-          ></Searchbar>
+          />
         </View>
       </Appbar.Header>
     );
@@ -112,30 +121,36 @@ function HomeScreen({ navigation, route }) {
   }, []);
 
   return (
-    <View style={{ flex: 1, backgroundColor: "white" }}>
+    <View style={{ flex: 1 }}>
       <AppHeader />
-      <FlatList
-        data={require("../dummy/cards.js")}
-        renderItem={({ item }) => {
-          return (
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("Trainer", { item });
-              }}
-            >
-              <Trainer trainer={item} />
-            </TouchableOpacity>
-          );
-        }}
-        keyExtractor={getKeyString}
-        numColumns={1}
-        contentContainerStyle={{
-          backgroundColor: "white",
-        }}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      ></FlatList>
+      <ScrollView>
+        <ImageBackground
+          source={require("../../assets/wallpaper-retro.jpg")}
+          style={{
+            backgroundSize: "cover",
+          }}
+        >
+          <FlatList
+            data={require("../dummy/cards.js")}
+            renderItem={({ item }) => {
+              return (
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("Trainer", { item });
+                  }}
+                >
+                  <Trainer trainer={item} />
+                </TouchableOpacity>
+              );
+            }}
+            keyExtractor={getKeyString}
+            numColumns={1}
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
+          />
+        </ImageBackground>
+      </ScrollView>
     </View>
   );
 }

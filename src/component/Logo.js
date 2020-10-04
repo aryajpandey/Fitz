@@ -3,7 +3,7 @@ import { View, Image, Text } from "react-native";
 import styles from "../style";
 
 const Logo = () => (
-  <View style={{ flex: 1.5, paddingTop: 80 }}>
+  <View style={{ flex: 1, paddingTop: 120, paddingBottom: 30 }}>
     <Image
       resizeMode={"stretch"}
       source={require("../../assets/logo.png")}
