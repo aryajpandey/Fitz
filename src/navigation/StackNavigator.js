@@ -42,7 +42,7 @@ const StackNavigator = () => {
         options={{ headerShown: false }}
       />
 
-      <Stack.Screen name="Schedule" component={ScheduleScreen} />
+      <Stack.Screen name="Schedule" component={ScheduleScreen} options={{headerShown: false}} />
     </Stack.Navigator>
   );
 };
